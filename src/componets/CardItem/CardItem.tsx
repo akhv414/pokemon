@@ -5,10 +5,10 @@ import { styled } from 'styled-components';
 
 const CardLi: React.ElementType = styled.li`
         display: flex;
-        width: 250px;
+        width: 255px;
         border-radius: 15px;
         border: solid 1px;
-        height: 150px;
+        height: 155px;
         justify-content: space-between;
         gap: 5px;
         background: papayawhip;
@@ -17,6 +17,8 @@ const CardLi: React.ElementType = styled.li`
 
     const CardContent: React.ElementType = styled.div`
         display: flex;
+        margin-top: 10px;
+        font-weight: bolder;
         flex-grow: 2;
         flex-direction: column;
     `;

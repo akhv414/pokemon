@@ -31,8 +31,8 @@ const List = styled.ul`
 const CardList: React.FC<IPokemonList> = ({ results }) => {
     const [offset, setOffset] = useState(0);
     const  { data, error, isLoading } = useSWR(`${listURL}?offset=${offset}&limit=20`, fetcher);
-    console.log(offset)
-    const elements: [] = data && data.results.map((el: IPokemonItem) => {
+    console.log(results)
+    const elements = results.map((el: any) => {
         return (
             <CardItem key={el.url} {...el} />
         )
@@ -57,11 +57,9 @@ const CardList: React.FC<IPokemonList> = ({ results }) => {
         <>
             <List>
                 {error ? 'Something going wrong. Check you internet connection' : null}
-                {isLoading ? loader : elements}
+                {elements}
             </List>
-            {offset === 0 ? null : <button onClick={() => setOffset(offset - 20)}>Prev</button>}
-            {pages(data && data.count)}
-            <button onClick={() => setOffset(offset + 20)}>Next</button>
+            {/* {pages(data && data.count)} */}
         </>
     );
 };

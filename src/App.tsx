@@ -2,6 +2,7 @@ import useSWR from 'swr';
 import CardList from "./componets/CardList/CardList";
 import {useEffect, useState} from 'react';
 import fetcher from './services/serviceAPI';
+import { HomePage } from './pages';
 
 const listURL: string = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -18,7 +19,8 @@ function App() {
   
   return (
     <div className="App">
-      {isLoading ? null : <CardList results={data.results}/>}
+      {/* {isLoading ? null : <CardList results={data.results}/>} */}
+      <HomePage />
     </div>
   );
 }
