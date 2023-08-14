@@ -45,8 +45,6 @@ const CardItem: React.ElementType = (pokemon: IPokemonItem) => {
     const { url } = pokemon;
     const { data } = useSWR(url, fetcher);  
 
-    //console.log(data.stats)
-
     return (
         <CardLi key={url}>
             <CardTitle>
