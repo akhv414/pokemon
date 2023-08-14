@@ -16,7 +16,6 @@ const List = styled.ul`
 `;
 
 const CardList: React.FC<IPokemonList> = ({ results }) => {
-    const [offset, setOffset] = useState(0);
     
     const elements = results.map((el: any) => {
         return (
