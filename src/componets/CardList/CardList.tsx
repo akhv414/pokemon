@@ -6,7 +6,6 @@ import { styled } from 'styled-components';
 import { IPokemonItem, IPokemonList } from '../../interfaces/interfaces';
 
 const listURL: string = 'https://pokeapi.co/api/v2/pokemon/';
-const loader: string = '...loading';
 const List = styled.ul`
     display: flex;
     justify-content: space-between;
@@ -18,9 +17,7 @@ const List = styled.ul`
 
 const CardList: React.FC<IPokemonList> = ({ results }) => {
     const [offset, setOffset] = useState(0);
-    const  { data, error, isLoading } = useSWR(`${listURL}?offset=${offset}&limit=20`, fetcher);
-    //console.log(results);
-
+    
     const elements = results.map((el: any) => {
         return (
             <CardItem key={el.url} {...el} />
@@ -44,7 +41,6 @@ const CardList: React.FC<IPokemonList> = ({ results }) => {
 
     return (
         <List>
-            {error ? 'Something going wrong. Check you internet connection' : null}
             {elements}
         </List>
     );
